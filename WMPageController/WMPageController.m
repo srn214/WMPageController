@@ -870,6 +870,8 @@ static NSInteger const kWMControllerCountUndefined = -1;
         CGFloat rate = _targetX / _viewWidth;
         [self.menuView slideMenuAtProgress:rate];
         [self.menuView deselectedItemsIfNeeded];
+    } else {
+        NSLog(@"减速");
     }
 }
 

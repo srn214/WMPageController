@@ -58,15 +58,12 @@
     
     WMTableViewController *vc = (WMTableViewController *)self.currentViewController;
     
-    NSLog(@"==========%f=======%f", self.menuView.frame.origin.y, vc.tableView.contentOffset.y);
-    
     if (self.menuView.frame.origin.y == kNavigationBarHeight) {
         if (vc.tableView.contentOffset.y > 0) {
             return;
         }
     }
     
-    NSLog(@"pannnnnning received..");
     
     CGPoint currentPoint = [recognizer locationInView:self.view];
     
@@ -79,7 +76,7 @@
         NSTimeInterval duration = fabs((targetPoint - self.viewTop) / velocity.y);
         
         if (fabs(velocity.y) * 1.0 > fabs(targetPoint - self.viewTop)) {
-            NSLog(@"velocity: %lf", velocity.y);
+            
             [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.viewTop = targetPoint;
             } completion:nil];

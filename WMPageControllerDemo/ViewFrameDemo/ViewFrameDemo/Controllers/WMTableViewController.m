@@ -7,8 +7,12 @@
 //
 
 #import "WMTableViewController.h"
+#import "WMHomeViewController.h"
 
 @interface WMTableViewController ()
+
+/** oldOffsetY */
+@property (nonatomic, assign) CGFloat oldOffsetY;
 
 @end
 
@@ -26,10 +30,6 @@ static NSString *const kTablewCellIdentifier = @"kTablewCellIdentifier";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kTablewCellIdentifier];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -46,5 +46,9 @@ static NSString *const kTablewCellIdentifier = @"kTablewCellIdentifier";
     cell.textLabel.text = @"歌曲";
     return cell;
 }
+
+
+#pragma mark - Scroll view delegate
+
 
 @end
